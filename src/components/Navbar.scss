@@ -1,0 +1,40 @@
+$navColor: rgb(233, 233, 233);
+$logoColor: black;
+$linksColor: black;
+
+nav {
+  background-color: $navColor;
+  justify-content: space-between;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 20px;
+
+    .logo-wrapper {
+      a {
+        text-decoration: none;
+        color: $logoColor;
+        padding: 10px;
+      }
+    }
+
+    .links-wrapper {
+      a {
+        text-decoration: none;
+        color: $linksColor;
+        margin-right: 20px;
+        padding: 10px;
+      }
+      a.isActive {
+        background-color: black;
+        border-radius: 10px;
+        color: white;
+        transition: background-color 0.3s;
+      }
+    }
+  }
+}
