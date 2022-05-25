@@ -13,3 +13,5 @@ Esse projeto tem como o intuito fazer um site básico com cadastro e login utili
 ![segunda-versao-validacoes](https://user-images.githubusercontent.com/68474584/170108923-2922f6d1-a06d-4547-8a84-0c80bf215105.gif)
 
 ## V0.3.0 - Funcionalidade de Login adicionada. Input de confirmação de senha no cadastro adicionada. Entre outras coisas
+
+Adição dos Gifs em andamento
