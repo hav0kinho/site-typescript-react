@@ -3,21 +3,22 @@ import { useNavigate } from "react-router-dom";
 
 //SCSS
 import "./Cadastro.scss";
-
 //INTERFACES
-import IUsuarioList from "../interfaces/IUsuarioList";
-import IUsuario from "../interfaces/IUsuario";
-import IAuthErros from "../interfaces/IAuthErros";
+import IUsuarioList from "../../interfaces/IUsuarioList";
+import IUsuario from "../../interfaces/IUsuario";
+import IAuthErros from "../../interfaces/IAuthErros";
 
 //CADASTRO
 let newId = 0;
 
 const Cadastro = ({ usuariosList, setUsuariosList }: IUsuarioList) => {
+  //STATES
   const [usuarioText, setUsuarioText] = useState<string>("");
   const [passwordText, setPasswordText] = useState<string>("");
+  const [confirmPasswordText, setConfirmPasswordText] = useState<string>("");
   const [emailText, setEmailText] = useState<string>("");
-  const [authErros, setAuthErros] = useState<string>();
-  const navigate = useNavigate();
+  const [authErros, setAuthErros] = useState<string>(); // Erros na hora da autenticação do registro do usuário
+  const navigate = useNavigate(); //Uso para Redirect
 
   const handleInputOnChange = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -28,6 +29,9 @@ const Cadastro = ({ usuariosList, setUsuariosList }: IUsuarioList) => {
         break;
       case "senha":
         setPasswordText(e.target.value);
+        break;
+      case "confirmSenha":
+        setConfirmPasswordText(e.target.value);
         break;
       case "email":
         setEmailText(e.target.value);
@@ -45,10 +49,10 @@ const Cadastro = ({ usuariosList, setUsuariosList }: IUsuarioList) => {
       email: emailText,
     };
 
-    let authResponse: IAuthErros = authUser(newUser);
+    let authResponse: IAuthErros = authUserRegister(newUser);
 
     if (authResponse.auth === true) {
-      setUsuariosList([...usuariosList, newUser]);
+      setUsuariosList!([...usuariosList, newUser]);
       alert("Usuario Cadastrado");
       resetInputs();
       navigate("/home");
@@ -61,20 +65,28 @@ const Cadastro = ({ usuariosList, setUsuariosList }: IUsuarioList) => {
     }
   };
 
-  const authUser = (newUser: IUsuario): IAuthErros => {
+  const authUserRegister = (newUser: IUsuario): IAuthErros => {
     let authResult: IAuthErros = { auth: false };
 
+    //Usuario
     if (newUser.nome.length < 4) {
       authResult.erroNome = "Nome deve ter pelo menos 4 caracteres";
       authResult.auth = false;
       return authResult;
     }
+    //Senha
     if (newUser.senha.length < 6) {
       authResult.erroSenha = "Senha de ter pelo menos 6 caracteres";
       authResult.auth = false;
       return authResult;
     }
+    if (newUser.senha !== confirmPasswordText) {
+      authResult.erroSenha = "Senhas devem ser iguais";
+      authResult.auth = false;
+      return authResult;
+    }
 
+    //Caso passe nas validações
     authResult.auth = true;
     return authResult;
   };
@@ -83,6 +95,7 @@ const Cadastro = ({ usuariosList, setUsuariosList }: IUsuarioList) => {
     setUsuarioText("");
     setPasswordText("");
     setEmailText("");
+    setConfirmPasswordText("");
   };
 
   return (
@@ -106,6 +119,16 @@ const Cadastro = ({ usuariosList, setUsuariosList }: IUsuarioList) => {
           name="senha"
           placeholder="Senha"
           value={passwordText}
+          required
+        />
+
+        <label htmlFor="confirmSenha">Confirme sua senha: </label>
+        <input
+          onChange={handleInputOnChange}
+          type="password"
+          name="confirmSenha"
+          placeholder="Confirme sua Senha"
+          value={confirmPasswordText}
           required
         />
 

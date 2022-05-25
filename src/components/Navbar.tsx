@@ -1,9 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
+import IUsuarioObject from "../interfaces/IUsuarioObject";
 
 //CSS
 import "./Navbar.scss";
 
-const Navbar = () => {
+const Navbar = ({ user }: IUsuarioObject) => {
   return (
     <nav>
       <div className="wrapper">
@@ -25,6 +26,8 @@ const Navbar = () => {
           >
             Cadastro
           </NavLink>
+
+          {user && <NavLink to={"/"}>{user.nome}</NavLink>}
         </div>
       </div>
     </nav>
