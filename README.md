@@ -14,8 +14,9 @@ Esse projeto tem como o intuito fazer um site básico com cadastro e login utili
 
 ## V0.3.0 - Funcionalidade de Login adicionada. Input de confirmação de senha no cadastro adicionada. Entre outras coisas
 
-![terceiraversao1](https://user-images.githubusercontent.com/68474584/170382348-9c7e6307-a33f-4be5-8db0-b18548e626cc.gif)
-![terceiraversao2](https://user-images.githubusercontent.com/68474584/170382370-bfef618e-8ac2-442f-8ccb-1248fcc0e085.gif)
+![terceiraVersao1](https://user-images.githubusercontent.com/68474584/170383450-9bf3f279-01a2-4fef-aca4-944741284b21.gif)
+![terceiraVersao2](https://user-images.githubusercontent.com/68474584/170383462-83aa1886-1ea2-46e8-858d-6e508b379f59.gif)
+
 
 
 
