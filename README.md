@@ -4,7 +4,8 @@ Esse projeto tem como o intuito fazer um site básico com cadastro e login utili
 
 # V0.1.0 - Estrutura Inicial do Projeto!
 
-[primeira-versao](https://user-images.githubusercontent.com/68474584/170108762-7b8f17a3-f412-40af-8211-ce953b128001.gif)
+![primeira-versao](https://user-images.githubusercontent.com/68474584/170109393-10908f62-6b61-42c6-b993-94e3a197536c.gif)
+
 
 # 0.2.0 - Estrutura e Funcionalide do componente/página de cadastro
 
